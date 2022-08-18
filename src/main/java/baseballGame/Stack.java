@@ -20,7 +20,7 @@ public class Stack {
 		return top.value;
 	}
 	
-	// Проверка пуст ли стек
+	// Checking if the stack is empty
 	public boolean isEmpty() {
 		return (top == null);
 	}
