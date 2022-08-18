@@ -5,15 +5,12 @@ Write a program that checks if brackets of type (, ), {, }, [, ] in a string of 
 and (([{]})) - are wrong: the first one is missing one bracket, and the second one has a broken logic
 (the closing bracket should be of the same type as the last opening one).
  */
-
-import java.util.Stack;
-
 public class Main {
 	
 	public static void main(String[] args) {
 		Stack st1 = new Stack();
 		char[] brackets = {'(', ')', '[', ']', '{', '}'};
-		String str = "(([]{}))";
+		String str = "(([{]}))";
 		for (int i = 0; i < str.length(); i++) {
 			char c = str.charAt(i);
 			if (isOpenBracket(c, brackets)) {
@@ -23,7 +20,12 @@ public class Main {
 					System.out.println("Wrong bracket string");
 					return;
 				}
-				st1.pop();
+				char b = st1.pop();
+				// Совпадение типов скобок b и c
+				if (!isBracketsMatch(b, c, brackets)) {
+					System.out.println("Wrong bracket string");
+					return;
+				}
 			}
 		}
 		if (st1.isEmpty()) {
@@ -41,5 +43,15 @@ public class Main {
 		}
 		return false;
 	}
-	
+
+	// b - открывающаяся скобка
+	// c - закрывающаяся скобка
+	private static boolean isBracketsMatch(char b, char c, char[] brackets) {
+		for (int i = 0; i < brackets.length; i += 2) {
+			if (brackets[i] == b && brackets[i + 1] == c) {
+				return true;
+			}
+		}
+		return false;
+	}
 }
