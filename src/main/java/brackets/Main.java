@@ -1,4 +1,4 @@
-package parentheses;
+package brackets;
 /*
 Write a program that checks if brackets of type (, ), {, }, [, ] in a string of characters are closed in time
 (if the string consists of only brackets of these types). Thus the string (([]{})) is correct, while the strings (({}[))
@@ -21,7 +21,7 @@ public class Main {
 					return;
 				}
 				char b = st1.pop();
-				// Совпадение типов скобок b и c
+				// Matching bracket types b and c
 				if (!isBracketsMatch(b, c, brackets)) {
 					System.out.println("Wrong bracket string");
 					return;
@@ -43,9 +43,9 @@ public class Main {
 		}
 		return false;
 	}
-
-	// b - открывающаяся скобка
-	// c - закрывающаяся скобка
+	
+	// b - opening brackets
+	// c - closing brackets
 	private static boolean isBracketsMatch(char b, char c, char[] brackets) {
 		for (int i = 0; i < brackets.length; i += 2) {
 			if (brackets[i] == b && brackets[i + 1] == c) {

@@ -1,4 +1,4 @@
-package parentheses;
+package brackets;
 
 public class Stack {
 	private StackItem top;
@@ -16,7 +16,7 @@ public class Stack {
 		return a;
 	}
 	
-	// Проверка пуст ли стек
+	// Checking if the stack is empty
 	public boolean isEmpty() {
 		return (top == null);
 	}
