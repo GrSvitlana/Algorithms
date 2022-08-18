@@ -16,12 +16,12 @@ public class Stack {
 		return a;
 	}
 	
-	// Checking if the stack is empty
+	// checking if the stack is empty
 	public boolean isEmpty() {
 		return (top == null);
 	}
 	
-	private class StackItem {
+	private static class StackItem {
 		char value;
 		StackItem next;
 	}
