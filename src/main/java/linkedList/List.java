@@ -20,7 +20,23 @@ public class List {
     }
 
     public boolean isPalindrom() {
-        return false;
+        Stack stack = new Stack();
+        // Заполоним стек числами из списка
+        Node temp = head;
+        while (temp != null) {
+            stack.push(temp.value);
+            temp = temp.next;
+        }
+        // Сравниваем очередной элемент из списка и верхний элемент
+        // из стека
+        temp = head;
+        while (temp != null) {
+            if (temp.value != stack.pop()) {
+                return false;
+            }
+            temp = temp.next;
+        }
+        return true;
     }
 
     public void printList() {

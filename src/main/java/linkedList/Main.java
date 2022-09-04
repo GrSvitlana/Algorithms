@@ -10,29 +10,31 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-            Deque deque = new Deque();
-            deque.addFirst(10);
-            deque.addLast(20);
-            deque.addLast(30);
-            Deque resultDeque = palindrom(deque);
-            while (!resultDeque.isEmpty()) {
-                System.out.println(resultDeque.deleteFirst());
-            }
+        Deque deque = new Deque();
+        deque.addFirst(10);
+        deque.addLast(20);
+        deque.addLast(30);
+        Deque resultDeque = palindrom(deque);
+        while (!resultDeque.isEmpty()) {
+            System.out.println(resultDeque.deleteFirst());
+        }
         System.out.println();
         List list = new List();
         list.add(10);
         list.add(20);
         list.add(30);
         list.printList();
-        }
 
-        private static Deque palindrom(Deque deque) {
-            Deque resultDeque = new Deque();
-            while (!deque.isEmpty()) {
-                int temp = (int) deque.deleteLast();
-                resultDeque.addFirst(temp);
-                resultDeque.addLast(temp);
-            }
-            return resultDeque;
+        System.out.println(list.isPalindrom());
+    }
+
+    private static Deque palindrom(Deque deque) {
+        Deque resultDeque = new Deque();
+        while (!deque.isEmpty()) {
+            int temp = (int) deque.deleteLast();
+            resultDeque.addFirst(temp);
+            resultDeque.addLast(temp);
         }
+        return resultDeque;
+    }
 }
