@@ -1,4 +1,4 @@
-package Mergesort;
+package mergeSort;
 // Применить метод "Разделяй и властвуй" и разработать алгоритм поиска наименьшего значения массива.
 
 import java.util.Arrays;
