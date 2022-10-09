@@ -1,4 +1,4 @@
-package sortsQuickMerge;
+package Mergesort;
 
 public class QuickSort {
 
