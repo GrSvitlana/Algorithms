@@ -28,6 +28,7 @@ public class Main {
         String str2 = "A aa b cc ddd E fff ggg K";
         notRepeat(str2);
 
+        // это работает только до 10
         String[] a = {"1,2-4", "3-6", "1,3,4-9", "5"};
         toInt(a);
     }
