@@ -1,7 +1,7 @@
 package quickSort;
 /*
 1. Write your implementation of QuickSort.
-2. Use QuickSort to sort the string.
+2. Sort the string using QuickSort.
  */
 
 import java.util.Arrays;
