@@ -1,25 +1,16 @@
-package mergeSort;
-// Применить метод "Разделяй и властвуй" и разработать алгоритм поиска наименьшего значения массива.
+package sortsQuickMerge;
 
-import java.util.Arrays;
+public class MergeSort {
 
-public class Mergesort {
-
-    public static void main(String[] args) {
-        int[] array = {72, 44, 48, 42, 32, 108, 10, 19, 11};
-        System.out.println(Arrays.toString(sort(array)));
-        System.out.println("Min element is " + array[0]);
-    }
-
-    public static int[] sort(int[] elements) {
-        int length = elements.length;
+    public int[] sort(int[] array) {
+        int length = array.length;
+        int begin = 0;
+        int end = length - 1;
         if (length == 1) return null;
-        int[] sorted = mergeSort(elements, 0, length - 1);
-        System.arraycopy(sorted, 0, elements, 0, length);
-        return sorted;
+        return mergeSort(array, begin, end);
     }
 
-    private static int[] mergeSort(int[] elements, int left, int right) {
+    private int[] mergeSort(int[] elements, int left, int right) {
         if (left == right) {
             return new int[]{elements[left]};
         }
@@ -29,7 +20,7 @@ public class Mergesort {
         return merge(leftArray, rightArray);
     }
 
-    static int[] merge(int[] leftArray, int[] rightArray) {
+    private int[] merge(int[] leftArray, int[] rightArray) {
         int leftLen = leftArray.length;
         int rightLen = rightArray.length;
 
