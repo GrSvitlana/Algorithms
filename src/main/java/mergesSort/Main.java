@@ -3,7 +3,7 @@ package mergesSort;
 1. Write your implementation of MergeSort.
 2. Sort the string using MergeSort.
 3.* Find the index of a character in a string (without repeats)
-4.*String[] a = {"1,2-4", "3-6", "2,5,7-11", "5"} -> Integer[] i = {1,2,3,4,3,4,5,6,2,5,7,8,9,10,11,5}
+4.* String[] a = {"1,2-4", "3-6", "2,5,7-11", "5"} -> Integer[] i = {1,2,3,4,3,4,5,6,2,5,7,8,9,10,11,5}
  */
 
 import java.util.ArrayList;
@@ -28,8 +28,7 @@ public class Main {
         String str2 = "A aa b cc ddd E fff ggg K";
         notRepeat(str2);
 
-        // это работает только до 10
-        String[] a = {"1,2-4", "3-6", "1,3,4-9", "5"};
+        String[] a = {"1,2-4", "3-6", "2,5,7-11", "5"};
         toInt(a);
     }
 
@@ -47,6 +46,7 @@ public class Main {
     private static void toInt(String[] str) {
         List<Character> num = new ArrayList<>();
         char[] tmp;
+        int[] t;
         int diff;
         for (int i = 0; i < str.length; i++) {
             tmp = str[i].toCharArray();
@@ -55,15 +55,35 @@ public class Main {
                     continue;
                 }
                 if (tmp[j] == '-') {
-                    diff = (int) ((tmp[j + 1] - tmp[j - 1]) - 1);
-                    for (int k = 0; k < diff; k++) {
-                        num.add((char) (tmp[j - 1] + k + 1));
+
+                    if ((j + 2) < tmp.length && tmp[j + 2] == '1') {
+                        int d = 11;
+                        diff = (int) ((tmp[j + 1] - tmp[j - 1]) - 1) + d;
+                        for (int k = 0; k < diff; k++) {
+                            num.add((char) (tmp[j - 1] + k + 1));
+                        }
+                        j += diff;
+                    } else {
+                        diff = (int) ((tmp[j + 1] - tmp[j - 1]) - 1);
+                        for (int k = 0; k < diff; k++) {
+                            num.add((char) (tmp[j - 1] + k + 1));
+                        }
                     }
                 } else {
-                    num.add(tmp[j]);
+                    num.add((char) tmp[j]);
                 }
             }
         }
-        System.out.println(num);
+        for (int i = 0; i < num.size(); i++) {
+            if (num.get(i) == ':') {
+                System.out.print(10 + ",");
+            } else if (num.get(i) == ';') {
+                System.out.print(11 + ",");
+            } else if (i == num.size() - 1) {
+                System.out.print(num.get(i));
+            } else {
+                System.out.print(num.get(i) + ",");
+            }
+        }
     }
 }
