@@ -60,7 +60,7 @@ public class Main {
                 if (tmp[j] == '-') {
 
                     if ((j + 2) < tmp.length && tmp[j + 2] == '1') {
-                        d = 11;
+                        d = 11; // tmp[j+1] * 10 + tmp[j+2] = 1*10 + 1
                         diff = (int) ((tmp[j + 1] - tmp[j - 1]) - 1) + d;
                         for (int k = 0; k < diff; k++) {
                             num.add((char) (tmp[j - 1] + k + 1));
