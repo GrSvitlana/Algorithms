@@ -75,9 +75,9 @@ public class Main {
             }
         }
         for (int i = 0; i < num.size(); i++) {
-            if (num.get(i) == ':') {
+            if (num.get(i) == ':') {         // ASCII Dec 58 = Char ':'
                 System.out.print(10 + ",");
-            } else if (num.get(i) == ';') {
+            } else if (num.get(i) == ';') {  // ASCII Dec 59 = Char ';'
                 System.out.print(11 + ",");
             } else if (i == num.size() - 1) {
                 System.out.print(num.get(i));
