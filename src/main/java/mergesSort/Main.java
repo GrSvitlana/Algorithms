@@ -46,7 +46,7 @@ public class Main {
     private static void toInt(String[] str) {
         List<Character> num = new ArrayList<>();
         char[] tmp;
-        int[] t;
+        int d;
         int diff;
         for (int i = 0; i < str.length; i++) {
             tmp = str[i].toCharArray();
@@ -57,7 +57,7 @@ public class Main {
                 if (tmp[j] == '-') {
 
                     if ((j + 2) < tmp.length && tmp[j + 2] == '1') {
-                        int d = 11;
+                        d = 11;
                         diff = (int) ((tmp[j + 1] - tmp[j - 1]) - 1) + d;
                         for (int k = 0; k < diff; k++) {
                             num.add((char) (tmp[j - 1] + k + 1));
