@@ -74,6 +74,14 @@ public class Main {
                 }
             }
         }
+
+        /* ASCII Decimal to Char
+        48 - 0
+        49 - 1
+        50 - 2
+        ...
+        57 - 9
+         */
         for (int i = 0; i < num.size(); i++) {
             if (num.get(i) == ':') {         // ASCII Dec 58 = Char ':'
                 System.out.print(10 + ",");
