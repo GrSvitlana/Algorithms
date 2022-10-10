@@ -30,6 +30,9 @@ public class Main {
 
         String[] a = {"1,2-4", "3-6", "2,5,7-11", "5"};
         toInt(a);
+
+        String[] b = {"1,2-4", "3-6", "2,4,5-9", "5-8", "0,3-8", "3-6"};
+        toInt(b);
     }
 
     private static void notRepeat(String str) {
@@ -93,5 +96,6 @@ public class Main {
                 System.out.print(num.get(i) + ",");
             }
         }
+        System.out.println();
     }
 }
