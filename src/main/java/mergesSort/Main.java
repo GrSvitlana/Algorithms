@@ -29,10 +29,10 @@ public class Main {
         notRepeat(str2);
 
         String[] a = {"1,2-4", "3-6", "2,5,7-11", "5"};
-        toInt(a);
+        System.out.println(toInt(a));
 
-        String[] b = {"1,2-4", "3-6", "2,4,5-9", "5-8", "0,3-8", "3-6"};
-        toInt(b);
+        String[] b = {"1,2-4", "3-6,2-4", "2,5,7-21", "3-6", "2,4,5-9", "5-8", "0,3-8", "3-6"};
+        System.out.println(toInt(b));
     }
 
     private static void notRepeat(String str) {
@@ -46,56 +46,31 @@ public class Main {
         }
     }
 
-    private static void toInt(String[] str) {
-        List<Character> num = new ArrayList<>();
-        char[] tmp;
-        int d;
+    private static List<Integer> toInt(java.lang.String[] str) {
+        List<Integer> num = new ArrayList<>();
+        java.lang.String[] tmp;
+        java.lang.String[] mp;
+        java.lang.String[] p;
         int diff;
         for (int i = 0; i < str.length; i++) {
-            tmp = str[i].toCharArray();
+            tmp = str[i].split(",");
             for (int j = 0; j < tmp.length; j++) {
-                if (tmp[j] == ',') {
-                    continue;
-                }
-                if (tmp[j] == '-') {
-
-                    if ((j + 2) < tmp.length && tmp[j + 2] == '1') {
-                        d = 11; // tmp[j+1] * 10 + tmp[j+2] = 1*10 + 1
-                        diff = (int) ((tmp[j + 1] - tmp[j - 1]) - 1) + d;
-                        for (int k = 0; k < diff; k++) {
-                            num.add((char) (tmp[j - 1] + k + 1));
+                mp = tmp[j].split(",");
+                for (int k = 0; k < mp.length; k++) {
+                    if (tmp[j].contains("-")) {
+                        p = tmp[j].split("-");
+                        int p1 = Integer.parseInt(java.lang.String.valueOf(p[0]));
+                        int p2 = Integer.parseInt(java.lang.String.valueOf(p[1]));
+                        diff = p2 - p1;
+                        for (int n = 0; n < diff + 1; n++) {
+                            num.add(p1 + n);
                         }
-                        j += diff;
                     } else {
-                        diff = (int) ((tmp[j + 1] - tmp[j - 1]) - 1);
-                        for (int k = 0; k < diff; k++) {
-                            num.add((char) (tmp[j - 1] + k + 1));
-                        }
+                        num.add(Integer.valueOf(tmp[j]));
                     }
-                } else {
-                    num.add((char) tmp[j]);
                 }
             }
         }
-
-        /* ASCII Decimal to Char
-        48 - 0
-        49 - 1
-        50 - 2
-        ...
-        57 - 9
-         */
-        for (int i = 0; i < num.size(); i++) {
-            if (num.get(i) == ':') {         // ASCII Dec 58 = Char ':'
-                System.out.print(10 + ",");
-            } else if (num.get(i) == ';') {  // ASCII Dec 59 = Char ';'
-                System.out.print(11 + ",");
-            } else if (i == num.size() - 1) {
-                System.out.print(num.get(i));
-            } else {
-                System.out.print(num.get(i) + ",");
-            }
-        }
-        System.out.println();
+        return num;
     }
 }

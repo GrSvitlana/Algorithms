@@ -1,4 +1,4 @@
-package Mergesort;
+package mergeSort;
 // Apply the Divide and Conquer method and develop an algorithm for finding the smallest value of an array.
 
 import java.util.Arrays;
