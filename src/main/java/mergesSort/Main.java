@@ -46,11 +46,11 @@ public class Main {
         }
     }
 
-    private static List<Integer> toInt(java.lang.String[] str) {
+    private static List<Integer> toInt(String[] str) {
         List<Integer> num = new ArrayList<>();
-        java.lang.String[] tmp;
-        java.lang.String[] mp;
-        java.lang.String[] p;
+        String[] tmp;
+        String[] mp;
+        String[] p;
         int diff;
         for (int i = 0; i < str.length; i++) {
             tmp = str[i].split(",");
@@ -59,8 +59,8 @@ public class Main {
                 for (int k = 0; k < mp.length; k++) {
                     if (tmp[j].contains("-")) {
                         p = tmp[j].split("-");
-                        int p1 = Integer.parseInt(java.lang.String.valueOf(p[0]));
-                        int p2 = Integer.parseInt(java.lang.String.valueOf(p[1]));
+                        int p1 = Integer.parseInt(String.valueOf(p[0]));
+                        int p2 = Integer.parseInt(String.valueOf(p[1]));
                         diff = p2 - p1;
                         for (int n = 0; n < diff + 1; n++) {
                             num.add(p1 + n);
